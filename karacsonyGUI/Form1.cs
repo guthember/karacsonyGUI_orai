@@ -74,7 +74,17 @@ namespace karacsonyGUI
         lbAdat.Items.Add(sor);
         tbElkeszitett.Focus();
         Nullazas();
-        NapokEltuntetese(cbNap.SelectedIndex);
+        try
+        {
+          NapokEltuntetese(cbNap.SelectedIndex);
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+          cbNap.Enabled = false;
+          tbEladott.Enabled = false;
+          tbElkeszitett.Enabled = false;
+          btnHozzaad.Enabled = false;
+        }
       }
     }
 
